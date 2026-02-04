@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="fade">Hi Babyy 💕</h1>
+
+    <p class="fade" id="message">
+      I’ve been thinking… and I realized there’s no one else I’d rather spend Valentine’s Day with, soo....
+    </p>
+
+    <div class="button-container">
+      <button class="valentine-btn" id="yes-btn" onclick="showPictures()">Yes 💌</button>
+      <button class="valentine-btn" id="no-btn">No 😅</button>
+    </div>
+
+    <div class="photo-container">
+      <img src="IMG_0478.jpeg" alt="Photo 1" class="gallery-photo">
+      <img src="IMG_0415.jpeg" alt="Photo 2" class="gallery-photo">
+      <img src="IMG_0528.png" alt="Photo 3" class="gallery-photo">
+    </div>
+
+    <p id="response" class="fade"></p>
+  </div>
+
+  <div class="hearts"></div>
+
+  <script>
+    // Show pictures for Yes button
+    function showPictures() {
+      const photos = document.querySelectorAll('.gallery-photo');
+      const response = document.getElementById("response");
+
+      photos.forEach((photo, i) => {
+        setTimeout(() => {
+          photo.style.display = "block";
+          photo.classList.add("pop");
+        }, i * 600);
+      });
+
+      setTimeout(() => {
+        response.innerHTML = "YAY 🥹💞 I can’t wait to spend Valentine’s with you!";
+      }, photos.length * 600);
+    }
+
+    // No button behavior
+    const noBtn = document.getElementById('no-btn');
+    let noPressCount = 0;
+    const noMessages = [
+      "Are you sure? 🤔",
+      "Really? 😅",
+      "Come on... 💕",
+      "I’ll be sad 😢",
+      "Think again! 😏",
+      "Please? 🥺",
+      "Still no? 😳",
+      "Don't be mean 😝",
+      "Seriously? 😬",
+      "Pretty please? 🙏",
+      "I’m waiting 😭",
+      "C’mon now 😅",
+      "No way! 😆",
+      "You can’t resist 😏",
+      "Last chance! 💖"
+    ];
+
+    noBtn.addEventListener('click', () => {
+      if (noPressCount < 15) {
+        noBtn.textContent = noMessages[noPressCount];
+        noPressCount++;
+      } else {
+        noBtn.remove(); // remove after 15 presses
+      }
+    });
+
+    // Floating hearts animation
+    const heartsContainer = document.querySelector('.hearts');
+    setInterval(() => {
