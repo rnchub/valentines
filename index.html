@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Be My Valentine 💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1 class="fade">Hi Babyy 💕</h1>
-
+    <h1 class="fade">Hi [Her Name] 💕</h1>
     <p class="fade" id="message">
-      I’ve been thinking… and I realized there’s no one else I’d rather spend Valentine’s Day with, soo....
+      I’ve been thinking… and I realized there’s no one else I’d rather spend Valentine’s Day with.
     </p>
 
     <div class="button-container">
-      <button class="valentine-btn" id="yes-btn" onclick="showPictures()">Yes 💌</button>
+      <button class="valentine-btn" id="yes-btn">Yes 💌</button>
       <button class="valentine-btn" id="no-btn">No 😅</button>
     </div>
 
@@ -30,8 +30,9 @@
   <div class="hearts"></div>
 
   <script>
-    // Show pictures for Yes button
-    function showPictures() {
+    // Yes button behavior
+    const yesBtn = document.getElementById("yes-btn");
+    yesBtn.addEventListener("click", () => {
       const photos = document.querySelectorAll('.gallery-photo');
       const response = document.getElementById("response");
 
@@ -39,33 +40,22 @@
         setTimeout(() => {
           photo.style.display = "block";
           photo.classList.add("pop");
-        }, i * 600);
+        }, i * 600); // pop pictures one by one
       });
 
       setTimeout(() => {
-        response.innerHTML = "YAY 🥹💞 I can’t wait to spend Valentine’s with you!";
+        response.textContent = "YAY 🥹💞 I can’t wait to spend Valentine’s with you!";
       }, photos.length * 600);
-    }
+    });
 
     // No button behavior
-    const noBtn = document.getElementById('no-btn');
+    const noBtn = document.getElementById("no-btn");
     let noPressCount = 0;
     const noMessages = [
-      "Are you sure? 🤔",
-      "Really? 😅",
-      "Come on... 💕",
-      "I’ll be sad 😢",
-      "Think again! 😏",
-      "Please? 🥺",
-      "Still no? 😳",
-      "Don't be mean 😝",
-      "Seriously? 😬",
-      "Pretty please? 🙏",
-      "I’m waiting 😭",
-      "C’mon now 😅",
-      "No way! 😆",
-      "You can’t resist 😏",
-      "Last chance! 💖"
+      "Are you sure? 🤔","Really? 😅","Come on... 💕","I’ll be sad 😢",
+      "Think again! 😏","Please? 🥺","Still no? 😳","Don't be mean 😝",
+      "Seriously? 😬","Pretty please? 🙏","I’m waiting 😭","C’mon now 😅",
+      "No way! 😆","You can’t resist 😏","Last chance! 💖"
     ];
 
     noBtn.addEventListener('click', () => {
@@ -73,10 +63,19 @@
         noBtn.textContent = noMessages[noPressCount];
         noPressCount++;
       } else {
-        noBtn.remove(); // remove after 15 presses
+        noBtn.remove();
       }
     });
 
-    // Floating hearts animation
+    // Floating hearts
     const heartsContainer = document.querySelector('.hearts');
     setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }, 500);
+  </script>
+</body>
+</html>
