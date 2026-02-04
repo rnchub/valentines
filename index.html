@@ -8,26 +8,33 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="fade">HAII BABYY 💕</h1>
+    <h1 class="fade">Hi [Her Name] 💕</h1>
     <p class="fade" id="message">
-      I’ve been thinking… and I realized there’s no one else I’d rather spend Valentine’s Day with, soo...
+      I’ve been thinking… and I realized there’s no one else I’d rather spend Valentine’s Day with.
     </p>
 
-    <div class="button-container">
-      <button class="valentine-btn" id="yes-btn">Yes 💌</button>
-      <button class="valentine-btn" id="no-btn">No 😅</button>
-    </div>
+   <div class="photo-container">
+  <div class="photo-card">
+    <img src="IMG_0478.jpeg" alt="Photo 1" class="gallery-photo">
+    <p class="photo-caption">Our first adventure 💖</p>
+  </div>
+  <div class="photo-card">
+    <img src="IMG_0415.jpeg" alt="Photo 2" class="gallery-photo">
+    <p class="photo-caption">Best memories together 🌸</p>
+  </div>
+  <div class="photo-card">
+    <img src="IMG_0528.png" alt="Photo 3" class="gallery-photo">
+    <p class="photo-caption">Always us 💕</p>
+  </div>
+</div>
 
-    <div class="photo-container">
-      <img src="IMG_0478.jpeg" alt="Photo 1" class="gallery-photo">
-      <img src="IMG_0415.jpeg" alt="Photo 2" class="gallery-photo">
-      <img src="IMG_0528.png" alt="Photo 3" class="gallery-photo">
-    </div>
 
     <p id="response" class="fade"></p>
   </div>
 
   <div class="hearts"></div>
+  <div class="side-decor left-decor"></div>
+  <div class="side-decor right-decor"></div>
 
   <script>
     // Yes button behavior
@@ -35,14 +42,20 @@
     yesBtn.addEventListener("click", () => {
       const photos = document.querySelectorAll('.gallery-photo');
       const response = document.getElementById("response");
+      const noBtn = document.getElementById("no-btn");
 
+      // Remove No button
+      if (noBtn) noBtn.remove();
+
+      // Show pictures one by one
       photos.forEach((photo, i) => {
         setTimeout(() => {
           photo.style.display = "block";
-          photo.classList.add("pop");
-        }, i * 600); // pop pictures one by one
+          photo.parentElement.classList.add("pop"); // animate card
+        }, i * 600);
       });
 
+      // Show message after last photo
       setTimeout(() => {
         response.textContent = "YAY 🥹💞 I can’t wait to spend Valentine’s with you!";
       }, photos.length * 600);
@@ -79,4 +92,3 @@
   </script>
 </body>
 </html>
-
