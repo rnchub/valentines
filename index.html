@@ -1,98 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Be My Valentine 💖</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Will you be my Valentine?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!--
+    Instructions:
+    - Replace the sample images in the <img> tags (photo1.jpg, photo2.jpg, photo3.jpg)
+      with your own photos in the images/ folder or change the src to any URL.
+    - Edit the <h1> below to add her name: e.g., "For Emma" or remove if you prefer.
+    - Open index.html in your browser to preview. To share, upload the whole folder to GitHub Pages or Netlify.
+  -->
 </head>
 <body>
-  <div class="container">
-    <h1 class="fade">HAII BABYY!! 💕</h1>
-    <p class="fade" id="message">
-      Valentine’s Day would mean a lot more if you were mine. Will you be my Valentine?
-    </p>
+  <main class="page">
+    <header class="top">
+      <h2 class="to">For <span class="her-name">[Her Name]</span></h2>
+    </header>
 
-    <div class="button-container">
-      <button class="valentine-btn" id="yes-btn">Yes 💌</button>
-      <button class="valentine-btn" id="no-btn">No 😅</button>
-    </div>
-
-    <div class="photo-container">
-      <div class="photo-card">
-        <img src="IMG_0478.jpeg" alt="Photo 1" class="gallery-photo">
-        <p class="photo-caption">Our first adventure 💖</p>
+    <section class="card">
+      <div class="left">
+        <div class="photo-stack">
+          <!-- Replace these src URLs with your own images: images/photo1.jpg etc. -->
+          <img src="IMG_0528.png" alt="Us - photo 1" class="photo photo-1" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop&crop=faces'">
+          <img src="IMG_0528.png" alt="Us - photo 2" class="photo photo-2" onerror="this.src='https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop&crop=faces'">
+          <img src="IMG_0528.png" alt="Us - photo 3" class="photo photo-3" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop&crop=faces'">
+        </div>
+        <p class="note">You make my days sweeter. I couldn't imagine doing life without your smile.</p>
       </div>
-      <div class="photo-card">
-        <img src="IMG_0415.jpeg" alt="Photo 2" class="gallery-photo">
-        <p class="IMG_0528.png">Best memories together 🌸</p>
+
+      <div class="right">
+        <h1 class="title">Will you be my Valentine?</h1>
+        <p class="subtitle">I picked out some memories and put them here — and one big question.</p>
+
+        <div class="actions">
+          <button id="revealBtn" class="btn primary">Open the card</button>
+        </div>
+
+        <div id="reveal" class="reveal" aria-hidden="true">
+          <p class="reveal-text">Would you make me the happiest by being my Valentine?</p>
+          <div class="reveal-actions">
+            <button id="yesBtn" class="btn yes">Yes, of course! ❤️</button>
+            <button id="noBtn" class="btn no">Tell me later</button>
+          </div>
+          <p class="small">P.S. I love you.</p>
+        </div>
       </div>
-      <div class="photo-card">
-        <img src="photo3.jpg" alt="Photo 3" class="gallery-photo">
-        <p class="photo-caption">Always us 💕</p>
+    </section>
+
+    <section class="gallery">
+      <h3>Memories</h3>
+      <div class="grid">
+        <figure>
+          <img src="IMG_0478.jpeg" alt="memory 1" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop&crop=faces'">
+        </figure>
+        <figure>
+          <img src="IMG_0415.jpeg" alt="memory 2" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop&crop=faces'">
+        </figure>
+        <figure>
+          <img src="IMG_0528.png" alt="memory 3" onerror="this.src='https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=800&auto=format&fit=crop&crop=faces'">
+        </figure>
       </div>
-    </div>
+    </section>
 
-    <p id="response" class="fade"></p>
-  </div>
+    <footer class="foot">
+      <small>Made with a lots of ❤️</small>
+    </footer>
+  </main>
 
-  <div class="hearts"></div>
-  <div class="side-decor left-decor"></div>
-  <div class="side-decor right-decor"></div>
+  <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
 
-  <script>
-    // Yes button behavior
-    const yesBtn = document.getElementById("yes-btn");
-    yesBtn.addEventListener("click", () => {
-      const photos = document.querySelectorAll('.gallery-photo');
-      const response = document.getElementById("response");
-      const noBtn = document.getElementById("no-btn");
-
-      // Remove No button
-      if (noBtn) noBtn.remove();
-
-      // Show pictures one by one
-      photos.forEach((photo, i) => {
-        setTimeout(() => {
-          photo.style.display = "block";
-          photo.parentElement.classList.add("pop"); // animate card
-        }, i * 600);
-      });
-
-      // Show message after last photo
-      setTimeout(() => {
-        response.textContent = "YAY 🥹💞 I can’t wait to spend Valentine’s with you!";
-      }, photos.length * 600);
-    });
-
-    // No button behavior
-    const noBtn = document.getElementById("no-btn");
-    let noPressCount = 0;
-    const noMessages = [
-      "Are you sure? 🤔","Really? 😅","Come on... 💕","I’ll be sad 😢",
-      "Think again! 😏","Please? 🥺","Still no? 😳","Don't be mean 😝",
-      "Seriously? 😬","Pretty please? 🙏","I’m waiting 😭","C’mon now 😅",
-      "No way! 😆","You can’t resist 😏","Last chance! 💖"
-    ];
-
-    noBtn.addEventListener('click', () => {
-      if (noPressCount < 15) {
-        noBtn.textContent = noMessages[noPressCount];
-        noPressCount++;
-      } else {
-        noBtn.remove();
-      }
-    });
-
-    // Floating hearts
-    const heartsContainer = document.querySelector('.hearts');
-    setInterval(() => {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heartsContainer.appendChild(heart);
-      setTimeout(() => heart.remove(), 4000);
-    }, 500);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
