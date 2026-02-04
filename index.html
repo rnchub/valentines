@@ -4,71 +4,69 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Will you be my Valentine?</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
   <!--
-    Instructions:
-    - Replace the sample images in the <img> tags (photo1.jpg, photo2.jpg, photo3.jpg)
-      with your own photos in the images/ folder or change the src to any URL.
-    - Edit the <h1> below to add her name: e.g., "For Emma" or remove if you prefer.
-    - Open index.html in your browser to preview. To share, upload the whole folder to GitHub Pages or Netlify.
+    Quick instructions:
+    - Put your photos in an images/ folder named photo1.jpg, photo2.jpg, photo3.jpg (or change the <img src> paths).
+    - To personalize the name via URL: open index.html?name=Emma and it will show "For Emma".
+    - Edit the <p class="love-note"> text below to your personal message.
+    - Open index.html locally or host on GitHub Pages / Netlify to share.
   -->
 </head>
 <body>
-  <main class="page">
-    <header class="top">
-      <h2 class="to">For <span class="her-name">[Her Name]</span></h2>
+  <div class="page-wrap">
+    <header class="site-header">
+      <div class="header-left">
+        <h2 class="to">For <span class="her-name">JMy Baby</span></h2>
+        <small class="subhead">A little page made just for you</small>
+      </div>
+      <div class="header-right">
+        <span class="heart-badge" aria-hidden="true">💌</span>
+      </div>
     </header>
 
-    <section class="card">
-      <div class="left">
-        <div class="photo-stack">
-          <!-- Replace these src URLs with your own images: images/photo1.jpg etc. -->
-          <img src="IMG_0528.png" alt="Us - photo 1" class="photo photo-1" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop&crop=faces'">
-          <img src="IMG_0528.png" alt="Us - photo 2" class="photo photo-2" onerror="this.src='https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop&crop=faces'">
-          <img src="IMG_0528.png" alt="Us - photo 3" class="photo photo-3" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop&crop=faces'">
+    <main class="card">
+      <section class="photos">
+        <div class="photo-stack" aria-hidden="true">
+          <img src="IMG_0415.jpeg alt="photo 1" class="photo photo-1" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop&crop=faces'">
+          <img src="IMG_0478.jpeg" alt="photo 2" class="photo photo-2" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop&crop=faces'">
+          <img src="IMG_0528.png" alt="photo 3" class="photo photo-3" onerror="this.src='https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop&crop=faces'">
         </div>
-        <p class="note">You make my days sweeter. I couldn't imagine doing life without your smile.</p>
-      </div>
+        <p class="love-note">Every moment with you feels like sunshine — would you be my Valentine?</p>
+      </section>
 
-      <div class="right">
+      <section class="message">
         <h1 class="title">Will you be my Valentine?</h1>
-        <p class="subtitle">I picked out some memories and put them here — and one big question.</p>
+        <p class="lead">I made this just for you — a few memories, a question, and all my heart.</p>
 
-        <div class="actions">
-          <button id="revealBtn" class="btn primary">Open the card</button>
+        <div class="cta-row">
+          <button id="yesBtn" class="cta yes">Yes, with all my heart ❤️</button>
+          <button id="noBtn" class="cta no">Tell me later ☺️</button>
         </div>
 
-        <div id="reveal" class="reveal" aria-hidden="true">
-          <p class="reveal-text">Would you make me the happiest by being my Valentine?</p>
-          <div class="reveal-actions">
-            <button id="yesBtn" class="btn yes">Yes, of course! ❤️</button>
-            <button id="noBtn" class="btn no">Tell me later</button>
-          </div>
-          <p class="small">P.S. I love you.</p>
+        <div class="extra">
+          <p class="small">P.S. I love you — more than I can say.</p>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <section class="gallery">
       <h3>Memories</h3>
       <div class="grid">
-        <figure>
-          <img src="IMG_0478.jpeg" alt="memory 1" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop&crop=faces'">
-        </figure>
-        <figure>
-          <img src="IMG_0415.jpeg" alt="memory 2" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop&crop=faces'">
-        </figure>
-        <figure>
-          <img src="IMG_0528.png" alt="memory 3" onerror="this.src='https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=800&auto=format&fit=crop&crop=faces'">
-        </figure>
+        <figure><img src="images/photo1.jpg" alt="memory 1" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop&crop=faces'"></figure>
+        <figure><img src="images/photo2.jpg" alt="memory 2" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop&crop=faces'"></figure>
+        <figure><img src="images/photo3.jpg" alt="memory 3" onerror="this.src='https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=800&auto=format&fit=crop&crop=faces'"></figure>
       </div>
     </section>
 
-    <footer class="foot">
-      <small>Made with a lots of ❤️</small>
+    <footer class="site-footer">
+      <small>Made with lots of ❤️</small>
     </footer>
-  </main>
+  </div>
 
   <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
 
