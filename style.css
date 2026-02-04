@@ -1,8 +1,45 @@
+/* ===== Background ===== */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  overflow-x: hidden;
+}
+
+/* ===== Container card ===== */
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px 20px;
+  border-radius: 20px;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Fade-in text ===== */
+.fade {
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* ===== Buttons ===== */
 .button-container {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .valentine-btn {
@@ -11,8 +48,8 @@
   padding: 12px 25px;
   border: none;
   border-radius: 25px;
-  cursor: pointer;
   font-size: 16px;
+  cursor: pointer;
   transition: transform 0.3s;
 }
 
@@ -26,4 +63,83 @@
   50% { transform: scale(1.1) rotate(2deg); }
 }
 
-/* gallery-photo, pop-up, hearts, etc. stays the same */
+/* ===== Pictures ===== */
+.photo-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-photo {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 15px;
+  margin-top: 15px;
+  display: none;
+  object-fit: cover;
+}
+
+.pop {
+  animation: popUp 0.8s ease forwards;
+}
+
+@keyframes popUp {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* ===== Response message ===== */
+#response {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #ff4d6d;
+  word-wrap: break-word;
+}
+
+/* ===== Floating hearts ===== */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff4d6d;
+  transform: rotate(45deg);
+  animation: float 4s linear forwards;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff4d6d;
+  border-radius: 50%;
+}
+
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: 10px; top: 0; }
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 500px) {
+  .gallery-photo { max-width: 90%; }
+  .valentine-btn { padding: 10px 20px; font-size: 14px; }
+  .container { padding: 20px 15px; }
+}
