@@ -8,15 +8,16 @@ body {
   align-items: center;
   background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   overflow-x: hidden;
+  position: relative;
 }
 
-/* ===== Container card ===== */
+/* ===== Container ===== */
 .container {
   text-align: center;
   background: rgba(255, 255, 255, 0.95);
   padding: 25px 20px;
   border-radius: 20px;
-  max-width: 450px;
+  max-width: 500px;
   width: 90%;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   position: relative;
@@ -63,31 +64,51 @@ body {
   50% { transform: scale(1.1) rotate(2deg); }
 }
 
-/* ===== Pictures ===== */
+/* ===== Photo container ===== */
 .photo-container {
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 20px;
 }
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  transform: rotate(0deg);
+  transition: transform 0.5s;
+}
+
+.photo-card:nth-child(1) { transform: rotate(-5deg); }
+.photo-card:nth-child(2) { transform: rotate(3deg); }
+.photo-card:nth-child(3) { transform: rotate(-2deg); }
 
 .gallery-photo {
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
   border-radius: 15px;
-  margin-top: 15px;
   display: none;
   object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+.photo-caption {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #ff4d6d;
+}
+
+/* ===== Pop animation for photo card ===== */
 .pop {
-  animation: popUp 0.8s ease forwards;
+  animation: popCard 0.8s ease forwards;
 }
 
-@keyframes popUp {
-  0% { transform: scale(0); opacity: 0; }
-  60% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); }
+@keyframes popCard {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  60% { transform: scale(1.2) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); }
 }
 
 /* ===== Response message ===== */
@@ -137,9 +158,26 @@ body {
   100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
 }
 
+/* ===== Side decorations ===== */
+.side-decor {
+  position: fixed;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url('side-decor.png'); /* optional decoration */
+  background-repeat: repeat-y;
+  background-size: contain;
+}
+
+.left-decor { left: 0; }
+.right-decor { right: 0; }
+
 /* ===== Responsive ===== */
 @media (max-width: 500px) {
   .gallery-photo { max-width: 90%; }
   .valentine-btn { padding: 10px 20px; font-size: 14px; }
   .container { padding: 20px 15px; }
+  .photo-card { align-items: center; transform: rotate(0deg) !important; }
 }
