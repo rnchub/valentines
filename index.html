@@ -10,24 +10,28 @@
   <div class="container">
     <h1 class="fade">HAII BABYY!! 💕</h1>
     <p class="fade" id="message">
-      I think my February would be a lot brighter with you in it. Will you be my Valentine?
+      Valentine’s Day would mean a lot more if you were mine. Will you be my Valentine?
     </p>
 
-   <div class="photo-container">
-  <div class="photo-card">
-    <img src="IMG_0478.jpeg" alt="Photo 1" class="gallery-photo">
-    <p class="photo-caption">Our first adventure 💖</p>
-  </div>
-  <div class="photo-card">
-    <img src="IMG_0415.jpeg" alt="Photo 2" class="gallery-photo">
-    <p class="photo-caption">Best memories together 🌸</p>
-  </div>
-  <div class="photo-card">
-    <img src="IMG_0528.png" alt="Photo 3" class="gallery-photo">
-    <p class="photo-caption">Always us 💕</p>
-  </div>
-</div>
+    <div class="button-container">
+      <button class="valentine-btn" id="yes-btn">Yes 💌</button>
+      <button class="valentine-btn" id="no-btn">No 😅</button>
+    </div>
 
+    <div class="photo-container">
+      <div class="photo-card">
+        <img src="IMG_0478.jpeg" alt="Photo 1" class="gallery-photo">
+        <p class="photo-caption">Our first adventure 💖</p>
+      </div>
+      <div class="photo-card">
+        <img src="IMG_0415.jpeg" alt="Photo 2" class="gallery-photo">
+        <p class="IMG_0528.png">Best memories together 🌸</p>
+      </div>
+      <div class="photo-card">
+        <img src="photo3.jpg" alt="Photo 3" class="gallery-photo">
+        <p class="photo-caption">Always us 💕</p>
+      </div>
+    </div>
 
     <p id="response" class="fade"></p>
   </div>
@@ -57,7 +61,7 @@
 
       // Show message after last photo
       setTimeout(() => {
-        response.textContent = "YAY 🥹💞 THANKS BABYY!! I can’t wait to spend my valentine’s with you!!";
+        response.textContent = "YAY 🥹💞 I can’t wait to spend Valentine’s with you!";
       }, photos.length * 600);
     });
 
@@ -92,5 +96,3 @@
   </script>
 </body>
 </html>
-
-
